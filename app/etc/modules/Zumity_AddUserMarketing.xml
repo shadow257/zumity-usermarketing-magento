@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Zumity_AddUserMarketing>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Zumity_AddUserMarketing>
+    </modules>
+</config>

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Zumity_AddUserMarketing>
+      <version>0.1.1</version>
+    </Zumity_AddUserMarketing>
+  </modules>
+  <global>
+    <helpers>
+      <addusermarketing>
+        <class>Zumity_AddUserMarketing_Helper</class>
+      </addusermarketing>
+    </helpers>
+	<blocks>
+	  <addusermarketing>
+		<class>Zumity_AddUserMarketing_Block</class>
+	  </addusermarketing>
+	</blocks>
+	<models>
+	  <addusermarketing>
+		<class>Zumity_AddUserMarketing_Model</class>
+		<resourceModel>addusermarketing_mysql4</resourceModel>
+	  </addusermarketing>
+	  <addusermarketing_mysql4>
+		<class>Zumity_AddUserMarketing_Model_Mysql4</class>
+		<entities>		  
+			  <addusermarketing>
+				<table>zumity_user_marketing</table>
+			  </addusermarketing>
+        </entities>
+	  </addusermarketing_mysql4>
+	</models>
+	<resources>
+	  <addusermarketing_setup>
+		<setup>
+		  <module>Zumity_AddUserMarketing</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </addusermarketing_setup>
+	  <addusermarketing_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </addusermarketing_write>
+	  <addusermarketing_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </addusermarketing_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <addusermarketing>
+	    <use>admin</use>
+		<args>
+		  <module>Zumity_AddUserMarketing</module>
+		  <frontName>addusermarketing</frontName>
+		</args>
+	  </addusermarketing>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <addusermarketing module="addusermarketing">
+		<title>Masterbuilt</title>
+		<sort_order>0</sort_order>
+		<children>
+		  <addusermarketingbackend module="addusermarketing">
+			<title>Customer Email Marketing</title>
+			<sort_order>0</sort_order>
+			<action>addusermarketing/adminhtml_addusermarketingbackend</action>
+			<children>
+				<addusermarketing module="addusermarketing">
+					<title>Manage C.E. Marketing</title>
+					<sort_order>1</sort_order>
+					<action>addusermarketing/adminhtml_addusermarketing</action>
+				</addusermarketing>
+			</children>
+		  </addusermarketingbackend>		  
+		</children>
+	  </addusermarketing>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<addusermarketing translate="title" module="addusermarketing">
+			  <title>AddUserMarketing</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <addusermarketingbackend translate="title">
+			<title>Customer Email Marketing</title>
+		  </addusermarketingbackend>
+		  <addusermarketing translate="title">
+			<title>Manage Addusermarketing</title>
+			<sort_order>0</sort_order>
+		  </addusermarketing>
+			  </children>
+			</addusermarketing>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<addusermarketing>
+		  <file>addusermarketing.xml</file>
+		</addusermarketing>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 
